@@ -1,0 +1,105 @@
+
+# ── Dependencies ──────────────────────────────────────────────────────
+node_modules/
+/.pnp
+.pnp.js
+venv/
+.venv/
+env/
+ENV/
+
+# ── Environment & Secret Variables (CRITICAL) ─────────────────────────
+.env
+.env.*
+!.env.example
+server/.env
+server/.env.*
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+
+# ── Encryption Keys & Artifacts (CRITICAL - NEVER COMMIT) ─────────────
+*.key
+*.key.tmp
+*.enc
+master.key
+server/master.key
+keys/
+server/keys/
+keys/*
+server/keys/*
+
+# ── User Uploads & Storage (Local Files) ──────────────────────────────
+uploads/
+server/uploads/
+uploads/*
+server/uploads/*
+!uploads/.gitkeep
+!server/uploads/.gitkeep
+
+# ── Python Bytecode & Runtime Caches ──────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# ── Testing & Coverage ────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# ── Frontend Builds & Artifacts ───────────────────────────────────────
+build/
+dist/
+client/build/
+client/dist/
+.cache/
+client/.cache/
+.eslintcache
+
+# ── Databases & Local Storage Dumps ───────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+pgdata/
+trustshare_postgres/
+
+# ── Logs & Debugging ──────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── OS & IDE Metadata ─────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# ── Temporary / Backup Files ──────────────────────────────────────────
+*.bak
+*.tmp
+*_backup.py
+*_backup.js
