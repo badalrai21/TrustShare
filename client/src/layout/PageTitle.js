@@ -1,7 +1,10 @@
+// client/src/layout/PageTitle.js
+
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ROUTE_TITLES = {
+  "/":                "TrustShare — Secure File Sharing & Zero-Trust Storage",
   "/dashboard":       "Dashboard",
   "/files":           "My Files",
   "/my-files":        "My Files",
@@ -27,12 +30,16 @@ export default function PageTitle() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // FIX ISS-L5: Exact match first
     if (ROUTE_TITLES[pathname]) {
       document.title = `${ROUTE_TITLES[pathname]} — ${APP_NAME}`;
       return;
     }
 
+    // Partial match — longest key wins to prevent collision
+    // Filter out "/" from startsWith so it doesn't override 404s on subpaths
     const matchedKey = Object.keys(ROUTE_TITLES)
+      .filter((key) => key !== "/")
       .sort((a, b) => b.length - a.length)
       .find((key) => pathname.startsWith(key));
 
