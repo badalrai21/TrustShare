@@ -1,3 +1,4 @@
+// client/src/App.js
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -8,7 +9,8 @@ import ScrollToTop from './layout/ScrollToTop';
 import PageTitle from './layout/PageTitle';
 import { ToastProvider } from './layout/ToastProvider';
 
-// Public Auth pages
+// Public pages
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import VerifyOtp from './pages/VerifyOtp';
@@ -71,7 +73,6 @@ function AppShell() {
   return (
     <Layout unreadCount={unreadCount}>
       <Routes>
-        <Route path="/"               element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard"      element={<Dashboard />} />
         <Route path="/files"          element={<Files />} />
         <Route path="/my-files"       element={<MyFiles />} />
@@ -108,7 +109,8 @@ export default function App() {
             <ScrollToTop />
             <PageTitle />
             <Routes>
-              {/* Public auth routes */}
+              {/* Public landing & auth routes */}
+              <Route path="/"                element={<Home />} />
               <Route path="/login"           element={<Login />} />
               <Route path="/signup"          element={<Signup />} />
               <Route path="/verify-otp"      element={<VerifyOtp />} />
@@ -117,7 +119,7 @@ export default function App() {
               <Route path="/oauth-callback"  element={<OAuthCallback />} />
               <Route path="/s/:token"        element={<PublicShare />} />
 
-              {/* Protected routes — root "/" redirects to /dashboard if logged in, or /login if not */}
+              {/* Protected app shell */}
               <Route
                 path="/*"
                 element={

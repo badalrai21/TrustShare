@@ -29,7 +29,6 @@ const BgEnvironment = ({ mouseX, mouseY }) => (
       <div className="ap-orbits">
         <div className="ap-orbit"><div className="ap-orbit-dot" /></div>
         <div className="ap-orbit"><div className="ap-orbit-dot" /></div>
-        <div className="ap-orbit"><div className="ap-orbit-dot" /></div>
       </div>
       <div className="ap-shapes">
         <div className="ap-shape"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="none" stroke="rgba(0,113,227,0.3)" strokeWidth="1" /></svg></div>
@@ -107,11 +106,12 @@ export default function Signup() {
       <BgEnvironment mouseX={mouseX} mouseY={mouseY} />
 
       <nav className="ap-nav">
-        <Link to="/login" className="ap-logo">
+        <Link to="/" className="ap-logo">
           <img src="/logo.png" alt="" onError={e => e.target.style.display='none'} />
           TrustShare
         </Link>
         <div className="ap-nav-r">
+          <Link to="/" className="ap-nav-a">Home</Link>
           <Link to="/login" className="ap-nav-a ap-nav-cta">Sign In</Link>
           <div className="ap-nav-divider" />
           <button 
