@@ -1,0 +1,6 @@
+server/tests/
+tests/
+__pycache__/
+.pytest_cache/
+.env
+.git
